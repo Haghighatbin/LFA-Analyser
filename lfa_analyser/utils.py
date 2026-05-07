@@ -454,7 +454,7 @@ def print_results_summary(results: Dict, filename: str = None) -> None:
         print("Analysis Results")
     print("="*60)
     
-    print(f"\TL1 Peak Intensity:    {results['TL1_peak']:.4f}")
+    print(f"TL1 Peak Intensity:    {results['TL1_peak']:.4f}")
     print(f"TL2 Peak Intensity: {results['TL2_peak']:.4f}")
     print(f"TL1/TL2 Ratio:     {results['ratio']:.4f}")
 

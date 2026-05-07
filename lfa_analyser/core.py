@@ -126,7 +126,7 @@ def analyse_lfa(
         TL1_peak = np.nanmax(intensity_corrected[:half_point])
         TL1_start = max(0, TL1_peak_idx - auc_window)
         TL1_end = min(half_point, TL1_peak_idx + auc_window + 1)
-        TL1_auc = np.trapz(np.maximum(intensity_corrected[TL1_start:TL1_end], 0))
+        TL1_auc = np.trapezoid(np.maximum(intensity_corrected[TL1_start:TL1_end], 0))
     else: 
         warnings.warn("TL1 peak is zero or invalid, ratio set to NaN")
         TL1_peak_idx = None
@@ -138,7 +138,7 @@ def analyse_lfa(
         TL2_peak = np.nanmax(intensity_corrected[half_point:])
         TL2_start = max(half_point, TL2_peak_idx - auc_window)
         TL2_end = min(n_pixels, TL2_peak_idx + auc_window + 1)
-        TL2_auc = np.trapz(np.maximum(intensity_corrected[TL2_start:TL2_end], 0))
+        TL2_auc = np.trapezoid(np.maximum(intensity_corrected[TL2_start:TL2_end], 0))
     else: 
         warnings.warn("TL2 peak is zero or invalid, ratio set to NaN")
         TL2_peak_idx = None
