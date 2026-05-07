@@ -12,35 +12,62 @@ import json
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit as st
-from streamlit_theme import st_theme
+# from streamlit_theme import st_theme
+
+# def _get_theme_colours():
+#     """
+#     Detect current Streamlit theme and return appropriate colour scheme.
+    
+#     Returns
+#     -------
+#     dict
+#         Colour scheme dictionary for plot styling
+#     """
+#     theme = None
+#     try:
+#         # Detect theme from Streamlit config
+#         # theme = st.session_state.get("theme", "dark") 
+#         theme = st_theme()
+#         if theme and theme.get("base") == "light":
+#             is_dark = False
+#     except:
+#         # Default to light if detection fails
+#         pass
+
+#     # If we got a valid theme, cache it
+#     if theme and theme.get("base"):
+#         st.session_state["detected_theme"] = theme.get("base")
+    
+#     # Use cached theme, or default to dark if nothing detected yet
+#     current_theme = st.session_state.get("detected_theme", "dark")
+#     is_dark = (current_theme == "dark")
+
+#     if is_dark:
+#         return {
+#             'plot_bg': '#0e1117',
+#             'paper_bg': '#0e1117',
+#             'grid_colour': 'rgba(255, 255, 255, 0.1)',
+#             'text_colour': '#fafafa',
+#             'line_colour': '#2E86AB',
+#             'vline_colour': '#fafafa',
+#             'legend_bg': 'rgba(14, 17, 23, 0.8)',
+#         }
+#     else:
+#         return {
+#             'plot_bg': 'white',
+#             'paper_bg': 'white',
+#             'grid_colour': 'rgba(128, 128, 128, 0.2)',
+#             'text_colour': '#000000',
+#             'line_colour': '#2E86AB',
+#             'vline_colour': 'gray',
+#             'legend_bg': 'rgba(255, 255, 255, 0.8)',
+#         }
 
 def _get_theme_colours():
-    """
-    Detect current Streamlit theme and return appropriate colour scheme.
-    
-    Returns
-    -------
-    dict
-        Colour scheme dictionary for plot styling
-    """
-    theme = None
     try:
-        # Detect theme from Streamlit config
-        # theme = st.session_state.get("theme", "dark") 
-        theme = st_theme()
-        if theme and theme.get("base") == "light":
-            is_dark = False
-    except:
-        # Default to light if detection fails
-        pass
-
-    # If we got a valid theme, cache it
-    if theme and theme.get("base"):
-        st.session_state["detected_theme"] = theme.get("base")
-    
-    # Use cached theme, or default to dark if nothing detected yet
-    current_theme = st.session_state.get("detected_theme", "dark")
-    is_dark = (current_theme == "dark")
+        is_dark = st.get_option("theme.base") != "light"
+    except Exception:
+        is_dark = True
 
     if is_dark:
         return {
