@@ -9,7 +9,6 @@ kaleido>=0.2.1
 
 # Web application
 streamlit>=1.28.0
-streamlit-theme>=0.1.0
 
 # Optional enhancements
 Pillow>=10.0.0  # Better image handling
