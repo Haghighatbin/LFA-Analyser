@@ -12,9 +12,9 @@ from io import BytesIO
 from PIL import Image
 import plotly.graph_objects as go
 
-from lfa_analyser.core import analyse_lfa
-from lfa_analyser.preprocessing import load_image, validate_lfa_image
-from lfa_analyser. utils import format_results_table, create_intensity_plot
+from .core import analyse_lfa
+from .preprocessing import load_image, validate_lfa_image
+from .utils import format_results_table, create_intensity_plot
 
 from lfa_analyser.config import Config
 
