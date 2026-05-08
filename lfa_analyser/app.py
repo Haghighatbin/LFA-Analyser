@@ -439,7 +439,7 @@ def main():
     st.markdown("""
     <p style='text-align: center; color: #999; font-size: 0.9rem;'>
     LFA Image Analyser v0.01
-    <a href='https://github.com/xxxxxx/lfa-analyser' target='_blank'>GitHub</a>
+    <a href='https://github.com/Haghighatbin/LFA-Analyser' target='_blank'>GitHub</a>
     </p>
     """, unsafe_allow_html=True)
 
